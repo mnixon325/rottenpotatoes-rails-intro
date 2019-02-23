@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
       Movie.order(:release_date)
     #else
     #  Movie.all
-    end
+    #end
   end
 
   def new
