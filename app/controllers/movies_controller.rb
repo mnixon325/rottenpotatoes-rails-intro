@@ -31,6 +31,7 @@ class MoviesController < ApplicationController
                 @hilite = Movie.order(:title)
               elsif params[:sort_by] == "release date"
                 Movie.order(:release_date)
+                @hilite = Movie.order(:release_date)
               else
                 Movie.all
               end
