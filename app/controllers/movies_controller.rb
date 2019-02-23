@@ -21,8 +21,8 @@ class MoviesController < ApplicationController
               else
                 Movie.all
               end
+  @sort_column = params[:sort_by]            
   @hilite = (Movie.order(:title) if Movie.order(:title)) || (Movie.order(:release_date) if Movie.order(:release_date))
-  
   end
 
   def new
