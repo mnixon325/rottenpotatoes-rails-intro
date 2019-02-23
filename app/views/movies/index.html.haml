@@ -5,7 +5,6 @@
   %thead
     %tr
       -#%th Movie Title
-      -#%th= link_to "Movie Title", movies_path(sort_by: "title")
       %th{:id => 'title_header'}= link_to "Movie Title", movies_path(sort_by: "title")
       %th Rating
       -#%th Release Date
