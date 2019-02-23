@@ -22,6 +22,8 @@ class MoviesController < ApplicationController
     @hilite_column = params[:sort_by]   
   
     @all_ratings = Movie.all_ratings
+    
+    Movie.where("rating IN (?)", params[:ratings].keys)
   
   end
 
