@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
               else
                 Movie.all
               end
-  @hilite = (Movie.order(:title) if params[:sort_by] == "title") || (Movie.order(:release_date) if params[:sort_by] == "release date")
+  @hilite = (Movie.all if params[:sort_by] == "title") || (Movie.order(:release_date) if params[:sort_by] == "release date")
   
   end
 
