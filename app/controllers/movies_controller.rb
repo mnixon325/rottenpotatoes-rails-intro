@@ -17,9 +17,7 @@ class MoviesController < ApplicationController
     else
       Movie.all
     end
-  end
-  
-  def order_release_date
+    
     #Sorting by Release Date
     @movie = Movie.all
     @movie = if params[:sort_by] == "Release Date" 
