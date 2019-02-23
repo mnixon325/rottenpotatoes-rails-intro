@@ -18,10 +18,11 @@ class MoviesController < ApplicationController
       Movie.all
     end
     
-    @movies = if params[:sort_by] == "release date" 
-      Movie.order(:release_date)
+    @releaseDate = RD.all
+    @releaseDate = if params[:sort_by] == "release date" 
+      RD.order(:release_date)
     else
-      Movie.all
+      RD.all
     end
   end
 
