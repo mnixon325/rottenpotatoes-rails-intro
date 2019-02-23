@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
       Movie.order(:release_date)
     end
     
-    if ((@movies != params[:sort_by] == "title") || (@movies != params[:sort_by] == "release date"))
+    if ((@movies = params[:sort_by] != "title") || (@movies != params[:sort_by] != "release date"))
       Movie.all
     end
     
