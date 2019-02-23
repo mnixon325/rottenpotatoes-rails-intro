@@ -19,7 +19,6 @@ class MoviesController < ApplicationController
     end
     
     #Sorting by Release Date
-    @movie = Movie.all
     @movie = if params[:sort_by] == "Release Date" 
       Movie.order(:release_date)
     else
