@@ -19,7 +19,10 @@ class MoviesController < ApplicationController
               else
                 Movie.all
               end
-  @hilite_column = params[:sort_by]            
+    @hilite_column = params[:sort_by]   
+  
+    @all_ratings = Movie.all_ratings
+  
   end
 
   def new
