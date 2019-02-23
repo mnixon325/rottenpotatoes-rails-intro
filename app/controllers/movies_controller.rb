@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
   
     @all_ratings = Movie.all_ratings
     
-    @movies = Movie.where("rating IN (?)", params[:ratings].keys)
+    @checked_ratings = Movie.where("rating IN (?)", params[:ratings].keys)
   
   end
 
