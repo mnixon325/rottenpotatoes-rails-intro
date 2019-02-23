@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
   def order_release_date
   #Sorting by Release Date
     @movies = Movie.all
-    @movies = if params[:sort_by] == "Release Date" 
+    @movies = if params[:sort_by] == "release date" 
       Movie.order(:release_date)
     else
       Movie.all
