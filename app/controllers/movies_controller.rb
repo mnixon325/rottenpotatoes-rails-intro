@@ -29,8 +29,6 @@ class MoviesController < ApplicationController
     else
         @all_ratings
     end
-    
-    #@filtered_ratings =
   
   end
 
