@@ -11,7 +11,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.where(:rating => @checked_ratings)
     #@movies = Movie.all
     @movies = if params[:sort_by] == "title"
                 Movie.order(:title)
@@ -30,6 +29,7 @@ class MoviesController < ApplicationController
         @all_ratings
     end
   
+    @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
   end
 
   def new
