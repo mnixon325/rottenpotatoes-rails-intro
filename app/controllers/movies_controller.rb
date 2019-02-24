@@ -26,6 +26,8 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_rating
     @selected_ratings = (params[:ratings].present? ? params[:ratings] : [])
     
+    
+    
     #@filtered_ratings = if params[:ratings]
     #    @filtered_ratings = params[:ratings]
     #else
