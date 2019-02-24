@@ -21,9 +21,12 @@ class MoviesController < ApplicationController
               end
     @hilite_column = params[:sort_by]   
   
+  
     @all_ratings = Movie.all_ratings
     
-    @checked_ratings = Movie.where("rating IN (?)", params[:ratings].keys)
+    @ratings = params[:rating]
+    
+    @filtered_ratings = (@ratings.keys if @ratings) || @all_ratings    
   
   end
 
