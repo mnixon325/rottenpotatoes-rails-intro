@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
    @movies = if params[:sort_by] == "title"
                 Movie.order(:title)
               elsif params[:sort_by] == "release date"
-                Movie.order(:release_dates)
+                Movie.order(:release_date)
               else
                 Movie.all
               end
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
         @all_ratings
     end
 
-    @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
+    @movies = Movie.order((Movie.order(:title)) || (Movie.order(:release_date))).where(:rating => @checked_ratings)
   end
 
   def new
