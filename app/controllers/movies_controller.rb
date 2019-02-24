@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
         @all_ratings
     end
 
-    @movies = Movie.order(@hilite_column).where("rating IN (?)", params[:ratings].keys)
+    @movies = Movie.order(@hilite_column).where("rating IN (?)", @chedked_ratings)
   end
 
   def new
