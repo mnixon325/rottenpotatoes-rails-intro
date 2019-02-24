@@ -23,12 +23,12 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     
     @checked_ratings = if params[:ratings]
-                          params[:ratings].keys
-                       else
-                          @all_ratings
-                       end
+        params[:ratings].keys
+    else
+        @all_ratings
+    end
 
-    @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
+    @movies = Movie.order(@hilite_column).where("rating IN (?)", params[:ratings].keys)
   end
 
   def new
