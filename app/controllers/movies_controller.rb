@@ -24,8 +24,8 @@ class MoviesController < ApplicationController
  
     @all_ratings = Movie.all_ratings
     
-    @checked_ratings = if params[:ratings]
-        params[:ratings].keys
+    @checked_ratings = if params[:rating]
+        params[:rating].keys
     else
         @all_ratings
     end
