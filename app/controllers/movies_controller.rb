@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
         @all_ratings
     end
 
-    @movies = Movie.order(@hilite_column if ((params[:sort_by] == "title") || (params[:sort_by] == "release date")).where(:rating => @checked_ratings)
+    @filtered_ratings = Movie.order(@hilite_column).where(:rating => @checked_ratings)
   end
 
   def new
