@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
   end
 
   def index
+  
+    @hilite_column = params[:sort_by]   
    @movies = if params[:sort_by] == "title"
                 Movie.order(:title)
               elsif params[:sort_by] == "release date"
@@ -18,7 +20,6 @@ class MoviesController < ApplicationController
               else
                 Movie.all
               end
-    @hilite_column = params[:sort_by]   
  
     @all_ratings = Movie.all_ratings
     
@@ -28,7 +29,7 @@ class MoviesController < ApplicationController
         @all_ratings
     end
 
-    @movies = Movie.order((Movie.order(:title)) || (Movie.order(:release_date))).where(:rating => @checked_ratings)
+    @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
   end
 
   def new
