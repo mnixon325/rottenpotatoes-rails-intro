@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
               end
     @hilite_column = params[:sort_by]   
  
-    @all_ratings = Movie.all_rating
+    @all_ratings = Movie.all_ratings
     
     @checked_ratings = if params[:ratings]
         params[:ratings].keys
