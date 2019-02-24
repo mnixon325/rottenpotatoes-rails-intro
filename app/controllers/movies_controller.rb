@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     #@movies = Movie.where("rating IN (?)", params[:ratings].keys)
-    @movies = @movies.where("rating IN (?)", params[:ratings]) if params[:ratings].present? and params[:ratings].any?
+    @movies = Movie.all
     @movies = if params[:sort_by] == "title"
                 Movie.order(:title)
               elsif params[:sort_by] == "release date"
@@ -21,16 +21,14 @@ class MoviesController < ApplicationController
                 Movie.all
               end
     @hilite_column = params[:sort_by]   
-  
-  
+ 
     @all_ratings = Movie.all_rating
-    @selected_ratings = (params[:ratings].present? ? params[:ratings] : [])
     
-    #@filtered_ratings = if params[:ratings]
-    #    @filtered_ratings = params[:ratings]
-    #else
-    #    @filtered_ratings = Movie.all_rating
-    #end
+    @checked_ratings = if params[:ratings]
+        params[:ratings].keys
+    else
+        @all_ratings
+    end
     
     #@filtered_ratings =
   
