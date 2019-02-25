@@ -37,6 +37,7 @@ class MoviesController < ApplicationController
                        end
 
     @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
+    redirect_to movies_path(:sort_by => session[:sort_by], :ratings => session[:ratings])
   end
 
   def new
