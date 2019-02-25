@@ -23,20 +23,20 @@ class MoviesController < ApplicationController
 
     session[:ratings] = params[:ratings] if params[:ratings]
  
-    redirect = false
+    redirect_to = false
     
     @all_ratings = Movie.all_ratings
     @hilite_column = if session[:sort_by]
                        session[:sort_by]
-                       redirect true
+                       redirect_to true
                      elsif session[:release_date]
                        session[:release_date]
-                       redirect true
+                       redirect_to true
                      end
     
     @checked_ratings = if session[:ratings]
                          session[:ratings].keys
-                         redirect true
+                         redirect_to true
                        else
                          @all_ratings
                        end
