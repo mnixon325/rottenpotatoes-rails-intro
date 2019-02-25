@@ -38,7 +38,9 @@ class MoviesController < ApplicationController
 
     @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
     
-    if session[:ratings] == 'Refresh'
+    if session[:ratings] && session[:sort_by]
+        redirect_to movies_path(:sort_by => session[:sort_by], :ratings => session[:ratings])
+    elsif ((session[:ratings] == 'ratings[G]' && session[:ratings] == 'ratings[PG]' && session[:ratings] == 'ratings[PG-13]' && session[:ratings] == 'ratings[R]') && (session[:release_date]))  
         redirect_to movies_path(:sort_by => session[:sort_by], :ratings => session[:ratings])
     end
   end
