@@ -36,9 +36,8 @@ class MoviesController < ApplicationController
                          session[:ratings].keys
                        else
                          @all_ratings
-                         redirect = true
                        end
-                       
+                       redirect = true
     if redirect
             redirect_to movies_path(:sort => session[:sort_by], :ratings => session[:ratings])
         end
