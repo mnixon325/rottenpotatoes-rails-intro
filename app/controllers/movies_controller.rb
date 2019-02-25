@@ -27,8 +27,9 @@ class MoviesController < ApplicationController
     else
         @all_ratings
     end
-
-    @filtered_ratings = Movie.order(@hilite_column).where(:rating => @checked_ratings)
+    
+    @movies = Movie.order(@hilite_column)
+    @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
   end
 
   def new
