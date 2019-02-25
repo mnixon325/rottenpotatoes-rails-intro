@@ -26,7 +26,6 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @hilite_column = if session[:sort_by]
                        session[:sort_by]
-                       redirect_to movies_path(@hilite_column)
                      elsif session[:release_date]
                        session[:release_date]
                      end
