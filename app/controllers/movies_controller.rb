@@ -28,19 +28,22 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @hilite_column = if session[:sort_by]
                        session[:sort_by]
+                       redirect true
                      elsif session[:release_date]
                        session[:release_date]
+                       redirect true
                      end
     
     @checked_ratings = if session[:ratings]
                          session[:ratings].keys
+                         redirect true
                        else
                          @all_ratings
                        end
-                       redirect = true
+                       
     if redirect
-            redirect_to movies_path(:sort => session[:sort_by], :ratings => session[:ratings])
-        end
+        redirect_to movies_path(:sort => session[:sort_by], :ratings => session[:ratings])
+    end
 
     @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
   end
