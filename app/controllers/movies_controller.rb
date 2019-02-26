@@ -11,14 +11,14 @@ class MoviesController < ApplicationController
   end
 
   def index
-    if params[:sort_by]
-        session[:sort_by] = params[:sort_by]
-        @hilite_column = session[:sort_by]
+     if params[:sort_by]
+      session[:sort_by] = params[:sort_by]
+      @hilite_column = session[:sort_by]
     end
 
     if params[:release_date]
-        session[:release_date] = params[:release_date]
-        @hilite_column = session[:release_date]
+      session[:release_date] = params[:release_date]
+      @hilite_column = session[:release_date]
     end
 
     session[:ratings] = params[:ratings] if params[:ratings]
