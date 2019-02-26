@@ -11,7 +11,6 @@
 %table#movies
   %thead
     %tr
-      -#%th Movie Title
       %th{:class => ('hilite' if @hilite_column == 'title')}= link_to "Movie Title", movies_path(sort_by: "title"), :id => 'title_header'
       %th Rating
       -#%th Release Date
