@@ -38,7 +38,8 @@ class MoviesController < ApplicationController
 
     @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
     
-    redirect_to "https://evening-caverns-88873.herokuapp.com/movies?ratings[G]=1&ratings[R]=1&sort_by=title"
+    
+
   end
 
   def new
