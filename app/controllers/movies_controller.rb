@@ -37,6 +37,7 @@ class MoviesController < ApplicationController
                        end
 
     @movies = Movie.order(@hilite_column).where(:rating => @checked_ratings)
+    
   end
 
   def new
